@@ -1,4 +1,4 @@
-## Calling Templates
+# Calling Templates
 <ul>
   <li>Defaults to integer in this example</li>
   <li>swap<double>(i,j)</li>
@@ -11,7 +11,7 @@
   </ul>
 </ul>
 
-## Minimum Function using template
+# Minimum Function using template
 ```
 // Minimum using template
 template<typename T> T my_min(T& a, T& b) {
@@ -25,9 +25,8 @@ template<typename T> T my_min(T& a, T& b) {
 }
 ```
 
-## A Simple Example: Pairs
+# A Simple Example: Pairs
 
-## Defining Member Functions for pair
 Definitions must be in the header file
 <ul>
   <li>Compiler must be able to generate code whenever it sees a new templated pair</li>
@@ -52,13 +51,10 @@ template<typename FirstT, typename SecondT> class pair {
 };
 ```
 
-## Make 
+# Make 
 Make is a wrapper for g++ command
 
-# Simple makefile for compiling a program from
-# two C source files.  
-
-Simple Makefile for Compiling C Sources: Everything Explicit
+Simple makefile for compiling a program from two C source files.  
 ```
 .KEEP_STATE
 
