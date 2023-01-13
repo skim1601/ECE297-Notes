@@ -4,10 +4,10 @@
   <li>swap<double>(i,j)</li>
   <li>cannot swap two different types, both parameters have to be the exact same</li>
   <ul>
-  <li>```i = 5, j = 9;```</li>
-  <li>```swap<double>(i, j);```</li>
+  <li>i = 5, j = 9</li>
+  <li>swap<double>(i, j);</li>
   <li>will not compile, since i, j are int but tehplate type is double</li>
-  <li>```swap<double>((double)i, (double)j); // This would work```</li>
+  <li>swap<double>((double)i, (double)j); // This would work</li>
   </ul>
 </ul>
 
@@ -28,10 +28,8 @@ template<typename T> T my_min(T& a, T& b) {
 # A Simple Example: Pairs
 
 Definitions must be in the header file
-<ul>
-  <li>Compiler must be able to generate code whenever it sees a new templated pair</li>
-  <li>Cannot seperate interface (*.h or *.hpp) from definition (*.cpp) when using templates</li>
-</ul>
+- Compiler must be able to generate code whenever it sees a new templated pair</li>
+- Cannot seperate interface (*.h or *.hpp) from definition (*.cpp) when using templates</li>
 
 ```
 // An example of pair Class
@@ -82,7 +80,7 @@ cc -O -c data.c
   <ul>
     <li>Template errors can be very complex and overwhelming for beginners</li>
     <li>Many templated functions and classes already exists</li>
-    <ul><li>**The Stanard Template Library** is your friend!</li></ul>
+    <ul><li>The Stanard Template Library is your friend!</li></ul>
   </ul>
   <li>If you do...</li>
   <ol>
@@ -92,3 +90,45 @@ cc -O -c data.c
     <li>Test again with multiple types</li>
   </ol>
 </ul>
+
+# The Standard Template Library
+- Writing templates can be difficult
+- Using templates is much easier and more productive
+- (E.g.) write your own sort function versus use a templated sort function
+
+The STL has you covered
+- swap, sort, pair, min, and more
+
+## The Containers Library
+- Several data structures are available
+  - vector - a dynamic contiguous array of elements of some type
+  - list - a doubly linked-list some type
+
+- The data stuctures are templated
+  - vector<double> - a dynamic array that stores doubles
+  - list<std::string> - a linked-list that stores std::strings
+
+## Motivating std::vector
+- We want to read integers from the user to an array until EOF
+  - 1 -20 3 31 55 <Ctrl+D>
+- Then do some work on the array
+
+- Problem: How big of an array should we allocate?
+  - We won't know until after all the input is read
+- Solution: linked-list (std::list)
+  - But lists are inefficient - accessing an requires O(n)
+
+- Accessing elements of vector
+  - int value = my_vector[42];
+- Inserting new elements
+  - my_vector.push_back(1234);
+- Modifying existing elements
+  - my_vector[42] = 64;
+- Querying number of elements
+  - int num_entries = my_vector.size();
+
+```
+  std::vector<int> integer; // Create an empty vector
+  integer.push_back(1); // Insert a new int lement into the vector. Will grow in size to accomodate.
+```
+
