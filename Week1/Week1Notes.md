@@ -1,13 +1,13 @@
 # Calling Templates
 <ul>
   <li>Defaults to integer in this example</li>
-  <li>swap<double>(i,j)</li>
+  <li>``swap<double>(i,j)``</li>
   <li>cannot swap two different types, both parameters have to be the exact same</li>
   <ul>
-  <li>i = 5, j = 9;</li>
-  <li>swap<double>(i, j);</li>
+  <li>`i = 5, j = 9;``</li>
+  <li>``swap<double>(i, j);``</li>
   <li>will not compile, since i, j are int but tehplate type is double</li>
-  <li>swap<double>((double)i, (double)j); // This would work</li>
+  <li>``swap<double>((double)i, (double)j);`` // This would work</li>
   </ul>
 </ul>
 
