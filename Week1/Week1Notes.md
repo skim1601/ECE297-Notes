@@ -1,12 +1,12 @@
 # Calling Templates
 -
   - Defaults to integer in this example
-  - ```swap&lt;double&gt;(i,j)```
+  - ```swap<double>(i,j)```
   - Cannot swap two different types, both parameters have to be the exact same
     - ```i = 5, j = 9```
-    - ```swap&lt;double&gt;(i, j);```
+    - ```swap<double>(i, j);```
     - will not compile, since i, j are int but tehplate type is double
-    - ```wap&lt;double&gt;((double)i, (double)j); // This would work```
+    - ```swap<double>((double)i, (double)j); // This would work```
 
 ## Minimum Function using template
 ```
@@ -102,12 +102,12 @@ The STL has you covered
   - list - a doubly linked-list some type
 
 - The data stuctures are templated
-  - vector&lt;double&gt; - a dynamic array that stores doubles
-  - list&lt;std::string&gt; - a linked-list that stores std::strings
+  - ```vector<double>``` - a dynamic array that stores doubles
+  - ```list<std::string>``` - a linked-list that stores std::strings
 
 ## Motivating std::vector
 - We want to read integers from the user to an array until EOF
-  - ```1 -20 3 31 55 &lt;Ctrl+D&gt;```
+  - ```1 -20 3 31 55 <Ctrl+D>```
 - Then do some work on the array
 
 - Problem: How big of an array should we allocate?
@@ -157,6 +157,8 @@ void print_vector(const std::vector<int> & integers) {
 - ```operator[]``` does not create values
 - ```operator[]``` does not check bounds
   - Out-of-bounds indices will cause your program to crash
+  - Operating Systems usually stop the access, however it could compile 
+    - Program could access unexpected values
 - For milestones, can use the debug-check configuration to do bounds checking
   - Will make your program run more slowly.
 
