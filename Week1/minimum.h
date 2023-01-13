@@ -1,3 +1,4 @@
+// Minimum using template
 template<typename T> T my_min(T& a, T& b) {
     T result;
     if (a > b)
@@ -7,4 +8,3 @@ template<typename T> T my_min(T& a, T& b) {
     
     return result; 
 }
-#endif
