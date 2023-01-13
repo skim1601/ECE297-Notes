@@ -1,13 +1,13 @@
 # Calling Templates
 <ul>
   <li>Defaults to integer in this example</li>
-  <li>swap<double>(i,j)</li>
+  <li>swap&lt;double&gt;(i,j)</li>
   <li>cannot swap two different types, both parameters have to be the exact same</li>
   <ul>
   <li>i = 5, j = 9</li>
-  <li>swap<double>(i, j);</li>
+  <li>swap&lt;double&gt;(i, j);</li>
   <li>will not compile, since i, j are int but tehplate type is double</li>
-  <li>swap<double>((double)i, (double)j); // This would work</li>
+  <li>swap&lt;double&gt;((double)i, (double)j); // This would work</li>
   </ul>
 </ul>
 
@@ -27,9 +27,9 @@ template<typename T> T my_min(T& a, T& b) {
 
 # A Simple Example: Pairs
 
-Definitions must be in the header file
-- Compiler must be able to generate code whenever it sees a new templated pair</li>
-- Cannot seperate interface (*.h or *.hpp) from definition (*.cpp) when using templates</li>
+- Definitions must be in the header file
+  - Compiler must be able to generate code whenever it sees a new templated pair</li>
+  - Cannot seperate interface (*.h or *.hpp) from definition (*.cpp) when using templates</li>
 
 ```
 // An example of pair Class
@@ -50,9 +50,9 @@ template<typename FirstT, typename SecondT> class pair {
 ```
 
 # Make 
-Make is a wrapper for g++ command
+- Make is a wrapper for g++ command
 
-Simple makefile for compiling a program from two C source files.  
+- Simple makefile for compiling a program from two C source files.  
 ```
 .KEEP_STATE
 
@@ -66,7 +66,7 @@ clean:
         	rm functions main.o data.o
 ```
 
-In this example, make produces the object files main.o and data.o, and the executable file functions:
+- In this example, make produces the object files main.o and data.o, and the executable file functions:
 ```
 $ make 
 cc -o functions main.o data.o 
@@ -101,16 +101,16 @@ The STL has you covered
 
 ## The Containers Library
 - Several data structures are available
-  - vector - a dynamic contiguous array of elements of some type
+  - vector - a dynamic contiguous array of elements of some type (not many types)
   - list - a doubly linked-list some type
 
 - The data stuctures are templated
-  - vector<double> - a dynamic array that stores doubles
-  - list<std::string> - a linked-list that stores std::strings
+  - vector&lt;double&gt; - a dynamic array that stores doubles
+  - list&lt;std::string&gt; - a linked-list that stores std::strings
 
 ## Motivating std::vector
 - We want to read integers from the user to an array until EOF
-  - 1 -20 3 31 55 <Ctrl+D>
+  - 1 -20 3 31 55 &lt;Ctrl+D&gt;
 - Then do some work on the array
 
 - Problem: How big of an array should we allocate?
@@ -120,9 +120,9 @@ The STL has you covered
 
 - Accessing elements of vector
   - int value = my_vector[42];
-- Inserting new elements
+- Inserting new elements (Complexity: O(1))
   - my_vector.push_back(1234);
-- Modifying existing elements
+- Modifying existing elements (Complexity: O(1))
   - my_vector[42] = 64;
 - Querying number of elements
   - int num_entries = my_vector.size();
@@ -132,3 +132,40 @@ The STL has you covered
   integer.push_back(1); // Insert a new int lement into the vector. Will grow in size to accomodate.
 ```
 
+print_vector function implementation
+```
+void print_vector(const std::vector<int> & integers) {
+    for (int i = 0; i < integers.size(); i++){
+        std::cout << integers[i] << " ";
+    }
+}
+```
+
+## Vector Behind the Scenes
+- Default constructor of vector invokes a contiguous array of capacity N
+- A new element is added, so the array gets updated, size increases by 1
+  - When size is equal to capacity, create a new array of capacity = 2*size
+  - Copy the old array's values into it.
+- Delete the old array to avoid memory leaks.
+
+## Vectors Versus C-Style Arrays
+- C-style array could cause Shallow copy, which ends up in memory leak
+```clist1 = clist2;```
+- In this case, vector2 gets deep-copied, hence no need to worry about memory leaks
+```vector1 = vector2;``` 
+- Do we need to delete vectors?
+  - No, they are not pointers
+  
+## Bounds Checking with Vectors
+- operator[] does not create values
+- operator[] does not check bounds
+  - Out-of-bounds indices will cause your program to crash
+- For milestones, can use the debug-check configuration to do bounds checking
+  - Will make your program run more slowly.
+
+``` 
+std::vector<int> v1; // size 0
+v1.push_back(-3); // size 1;
+v1[0] = -2; // replace -3 with -2
+v1[1] = 5; // ?
+```
