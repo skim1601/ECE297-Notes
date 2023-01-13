@@ -1,13 +1,13 @@
 # Calling Templates
 <ul>
   <li>Defaults to integer in this example</li>
-  <li>``swap<double>(i,j)``</li>
+  <li>swap<double>(i,j)</li>
   <li>cannot swap two different types, both parameters have to be the exact same</li>
   <ul>
-  <li>`i = 5, j = 9;``</li>
-  <li>``swap<double>(i, j);``</li>
+  <li>```i = 5, j = 9;```</li>
+  <li>```swap<double>(i, j);```</li>
   <li>will not compile, since i, j are int but tehplate type is double</li>
-  <li>``swap<double>((double)i, (double)j);`` // This would work</li>
+  <li>```swap<double>((double)i, (double)j); // This would work```</li>
   </ul>
 </ul>
 
@@ -75,3 +75,20 @@ cc -o functions main.o data.o
 cc -O -c main.c 
 cc -O -c data.c 
 ```
+
+# Tips for Writing Templates
+<ul>
+  <li>Don't</li>
+  <ul>
+    <li>Template errors can be very complex and overwhelming for beginners</li>
+    <li>Many templated functions and classes already exists</li>
+    <ul><li>**The Stanard Template Library** is your friend!</li></ul>
+  </ul>
+  <li>If you do...</li>
+  <ol>
+    <li>Write the code for one type first</li>
+    <li>Test it</li>
+    <li>Convert it to a template</li>
+    <li>Test again with multiple types</li>
+  </ol>
+</ul>
