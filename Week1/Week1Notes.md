@@ -1,17 +1,14 @@
 # Calling Templates
-<ul>
-  <li>Defaults to integer in this example</li>
-  <li>swap&lt;double&gt;(i,j)</li>
-  <li>cannot swap two different types, both parameters have to be the exact same</li>
-  <ul>
-  <li>i = 5, j = 9</li>
-  <li>swap&lt;double&gt;(i, j);</li>
-  <li>will not compile, since i, j are int but tehplate type is double</li>
-  <li>swap&lt;double&gt;((double)i, (double)j); // This would work</li>
-  </ul>
-</ul>
+-
+  - Defaults to integer in this example
+  - ```swap&lt;double&gt;(i,j)```
+  - Cannot swap two different types, both parameters have to be the exact same
+    - ```i = 5, j = 9```
+    - ```swap&lt;double&gt;(i, j);```
+    - will not compile, since i, j are int but tehplate type is double
+    - ```wap&lt;double&gt;((double)i, (double)j); // This would work```
 
-# Minimum Function using template
+## Minimum Function using template
 ```
 // Minimum using template
 template<typename T> T my_min(T& a, T& b) {
@@ -74,7 +71,7 @@ cc -O -c main.c
 cc -O -c data.c 
 ```
 
-# Tips for Writing Templates
+## Tips for Writing Templates
 <ul>
   <li>Don't</li>
   <ul>
@@ -110,7 +107,7 @@ The STL has you covered
 
 ## Motivating std::vector
 - We want to read integers from the user to an array until EOF
-  - 1 -20 3 31 55 &lt;Ctrl+D&gt;
+  - ```1 -20 3 31 55 &lt;Ctrl+D&gt;```
 - Then do some work on the array
 
 - Problem: How big of an array should we allocate?
@@ -119,20 +116,20 @@ The STL has you covered
   - But lists are inefficient - accessing an requires O(n)
 
 - Accessing elements of vector
-  - int value = my_vector[42];
+  - ```int value = my_vector[42];```
 - Inserting new elements (Complexity: O(1))
-  - my_vector.push_back(1234);
+  - ```my_vector.push_back(1234);```
 - Modifying existing elements (Complexity: O(1))
-  - my_vector[42] = 64;
+  - ```my_vector[42] = 64;```
 - Querying number of elements
-  - int num_entries = my_vector.size();
+  - ```int num_entries = my_vector.size();```
 
 ```
   std::vector<int> integer; // Create an empty vector
   integer.push_back(1); // Insert a new int lement into the vector. Will grow in size to accomodate.
 ```
 
-print_vector function implementation
+- print_vector function implementation
 ```
 void print_vector(const std::vector<int> & integers) {
     for (int i = 0; i < integers.size(); i++){
@@ -157,8 +154,8 @@ void print_vector(const std::vector<int> & integers) {
   - No, they are not pointers
   
 ## Bounds Checking with Vectors
-- operator[] does not create values
-- operator[] does not check bounds
+- ```operator[]``` does not create values
+- ```operator[]``` does not check bounds
   - Out-of-bounds indices will cause your program to crash
 - For milestones, can use the debug-check configuration to do bounds checking
   - Will make your program run more slowly.
