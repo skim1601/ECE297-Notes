@@ -85,3 +85,12 @@ it = numbers.begin() + 2;
 - Caution: You should always know what the actual type will be
 -  The type is still static
   -  autodoes not mean the type can change dynamically –this is not python
+
+## Simplifying Iterator Code with auto
+```
+for(std::vector<int>::iterator it = numbers.begin();
+    it != numbers.end(); ++it) {
+  std::cout << *it << " ";
+}
+std::cout << "\n";
+```
