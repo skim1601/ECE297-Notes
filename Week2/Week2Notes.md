@@ -8,7 +8,7 @@
 - An iterator is restricted to efficient operations
 
 ## Iterator versus operator[]
-- Why not just use array[index] to access elements?
+- Why not just use ```array[index]``` to access elements?
   - operator[] implies random access
   - Random access is not supported by all data structures
 - In the STL, all containers have iterators defined
@@ -58,7 +58,7 @@ it = numbers.begin() + 2;
   - We loop over n elements
   - Worst case: we erase n times
   - Complexity: O(n^2)
-  
+
 ## std::list is a Doubly Linked List
 - Double links (next and previous) allow for bi-directional access
 - Fast insert and erase

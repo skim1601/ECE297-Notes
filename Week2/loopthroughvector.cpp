@@ -15,4 +15,5 @@ std::cout << "\n";
 for(std::vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
   std::cout << *it << " ";
 }
-std::cout 
+
+std::cout << std::endl;
