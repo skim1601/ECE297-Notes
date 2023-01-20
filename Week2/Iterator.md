@@ -44,8 +44,9 @@ for (cit = s.begin(); cit != s.end(); ++cit) {
 std::vector<int> v = {1, 2, 3, 4, 5};
 std::vector<int>::iterator it = v.begin() + 2;
 v.erase(it);
-The "erase" function takes the iterator that points to the element that is to be removed as an argument. In this example, the iterator "it" is initialized to point to the 3rd element in the vector, which is 2. Then the "erase" function is called with "it" as the argument, and the element at that position is removed from the vector.
 ```
+
+- The ```erase``` function takes the iterator that points to the element that is to be removed as an argument. In this example, the iterator ```it``` is initialized to point to the 3rd element in the vector, which is 2. Then the ```erase``` function is called with ```it``` as the argument, and the element at that position is removed from the vector.
 - It's worth noting that the erase function returns an iterator pointing to the element following the last removed element.
 - If you are erasing a range of elements in a container, you can use the erase function that takes two iterator arguments, specifying the beginning and end of the range to remove.
 
