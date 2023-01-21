@@ -14,7 +14,7 @@ myMap.insert(std::make_pair(1, "Hello"));
 myMap.insert(std::make_pair(2, "World"));
 ```
 
-- You can also use the [] operator to insert or update elements in the map. For example:
+- You can also use the ```[]``` operator to insert or update elements in the map. For example:
 ```
 myMap[3] = "!";
 ```
@@ -26,20 +26,40 @@ myMap[3] = "!";
 
 - In summary, std::map is a useful container when you need to store a collection of unique key-value pairs and you frequently need to perform operations such as insertion, removal, and lookup based on the key. Its implementation as a red-black tree provides efficient performance for these operations.
 
-## Other containers (find, insert, erase)
-- std::map O(log n) O(log n) O(log n) 
+## Other containers
+- std::map 
+  - find: O(log n) 
+  - insert: O(log n) 
+  - erase: O(log n) 
   - Use when you need the keys to be ordered
-- std::multimap O(log n) O(log n) O(log n) 
+- std::multimap
+  - find: O(log n) 
+  - insert: O(log n) 
+  - erase: O(log n) 
   - Use when you have duplicate keys
-- std::unordered_map O(1) O(1) O(1) 
+- std::unordered_map 
+  - find: O(1) 
+  - insert: O(1) 
+  - erase: O(1) 
   - Use when the order of keys does notmatter
-- std::set O(logn) O(log n) O(log n) 
+- std::set 
+  - find: O(log n) 
+  - insert: O(log n) 
+  - erase: O(log n) 
   - Use when you only need keys and not their values
-- std::queue O(1) O(1) 
+- std::queue
+  - push: O(1)
+  - pop: O(1)
   - Use when you want first-in, first-out (FIFO) semantics
-- std::priority_queue O(log n) O(1) 
+- std::priority_queue
+  - push: O(log n)
+  - pop: O(1)
   - Keeps elements ordered. Use when you want fast look-up of  the largest (by default) element.
-- std::stack O(1) O(1) 
+- std::stack 
+  - push: O(1)
+  - pop: O(1) 
   - Use when you want last-in, first-out(LIFO) semantics
-- std::deque O(1) O(1) 
+- std::deque
+  - push: O(1)
+  - pop: O(1)
   - Similar to a vector, but can be faster if there are frequent insertions/deletions
